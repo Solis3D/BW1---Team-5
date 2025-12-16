@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Timer Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/timer-test.css" />
+  </head>
+  <body>
+    <div id="timer-box" style="aspect-ratio: 1/1" ;>
+      <div style="position: relative">
+        <svg width="100%" height="100%" viewBox="0 0 224 224" style="transform: rotate(-100deg)">
+          <linearGradient id="linearColors" x1="100%" x2="0%">
+            <stop offset="0%" stop-color="#00ffff"></stop>
+            <stop offset="100%" stop-color="#00ffff"></stop>
+          </linearGradient>
+          <circle cx="112" cy="112" fill="none" r="100" stroke="#ffffff" stroke-linecap="butt" stroke-width="24" style="opacity: 40%"></circle>
+          <path
+            d="
+        M 112, 112 
+        m -100, 0 
+        a 100,100 0 1,0 200,0 
+        a 100,100 0 1,0 -200,0
+      "
+            fill="none"
+            stroke="url(#linearColors)"
+            stroke-dasharray="157.080 471.239"
+            stroke-dashoffset="-293.21531433504737"
+            stroke-linecap="butt"
+            stroke-width="24"
+          ></path>
+          <!-- stroke-dasharray è da modificare 2πr = 2π*100 circonferenza del cerchio-->
+        </svg>
+        <div style="color: white; opacity: 90%; margin: auto; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+          <div style="font-size: 0.5rem; font-weight: 500">SECONDS</div>
+          <div style="font-size: 2.6rem; font-weight: 300; line-height: 0.9">16</div>
+          <div style="font-size: 0.5rem; font-weight: 300">REMAINING</div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/scripts/timer.js"></script>
+  </body>
+</html>
