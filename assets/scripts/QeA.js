@@ -1,53 +1,58 @@
 let quiz = [
   {
     question: "In computing, what does MIDI stand for? ",
-    answers: ["Risposta1", "Risposta2", "Risposta3", "Risposta4"],
+    answers: [
+      "Musical Instrument Digital Interface",
+      "Musical Interface of Digital Instruments",
+      "Modular Interface of Digital Instruments",
+      "Musical Instrument Data Interface",
+    ],
     correctAnswer: "1",
   },
   {
     question: "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
-    answers: ["1", "2", "3", "4"],
+    answers: ["Microsoft", "Apple", "Atari", "Commodore"],
     correctAnswer: "2",
   },
   {
     question: "The numbering system with a radix of 16 is more commonly referred to as",
-    answers: ["1", "2", "3"],
+    answers: ["Binary", "Hexidecimal", "Octal", "Duodecimal"],
     correctAnswer: "2",
   },
   {
     question: "What does the computer software acronym JVM stand for? ",
-    answers: ["1", "2", "3", "4"],
+    answers: ["Just Virtual Machine", "Java Visual Machine", "Java Vendor Machine", "Java Virtual Machine"],
     correctAnswer: "4",
   },
   {
     question: "The series of the Intel HD graphics generation succeeding that of the 5000 and 6000 series (Broadwell) is called:",
-    answers: ["1", "2"],
+    answers: ["HD Graphics 700 ", "HD Graphics 500", "HD Graphics 600", "HD Graphics 7000"],
     correctAnswer: "2",
   },
   {
     question: "Pointers were not used in the original C programming language; they were added later on in C++.",
-    answers: ["1", "2"],
+    answers: ["True", "False"],
     correctAnswer: "2",
   },
   {
     question: "What programming language was GitHub written in?",
-    answers: ["1", "2", "3", "4"],
+    answers: ["Python", "JavaScript", "Ruby", "Lua"],
     correctAnswer: "3",
   },
   {
     question: "What is the most preferred image format used for logos in the Wikimedia database?",
-    answers: ["1", "2", "3", "4"],
+    answers: [".jpeg", ".png", ".svg", ".gif"],
     correctAnswer: "3",
   },
   {
     question: "A Mac is not a PC",
-    answers: ["1", "2", "3"],
+    answers: ["false", "true"],
     correctAnswer: "1",
   },
   {
     question: "Time on Computers is measured via the EPOX System.",
-    answers: ["1", "2", "3", "4"],
-    correctAnswer: "3",
+    answers: ["true", "false"],
+    correctAnswer: "1",
   },
 ];
 
