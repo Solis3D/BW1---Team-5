@@ -57,7 +57,7 @@ input {
 
 main p {
   font-family: Inter;
-  font-size: 37px;
+  font-size: 38px;
   font-weight: 400;
   color: rgb(226, 226, 226);
   word-spacing: 1.3px;
@@ -74,19 +74,29 @@ input::placeholder {
   color: #656771;
 }
 
-.stars-div {
+#stars-div {
   margin-block: 3em 7em;
   min-height: 100px;
-  background-color: rgba(255, 255, 255, 0.479);
 }
 
 .star {
+  display: inline-block;
+  color: #141e69;
+  padding-inline: 1em;
+}
+
+.star.active {
+  color: #00ffff;
+}
+
+.star.over {
+  color: red;
 }
 
 .divider {
   height: 3px;
   background-color: #900080;
-  margin-block: 0.5em;
+  margin-block: 0.7em;
   margin-inline: auto;
   width: 95%;
 }
