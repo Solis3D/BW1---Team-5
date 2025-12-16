@@ -55,35 +55,43 @@ let currentQuestion = 0; //parto da singola domanda perchè se ciclo escono tutt
 //IMPORTATE current question diventa praticamente un indice da trattare come tale
 // perchè di partenza ho un array quindi quello zero è un indice d'array contenente un oggetto
 const quizContainer = document.getElementById("quiz"); // prendo contenitore con id
-const questionContainer = document.createElement("div"); //creo elemento div dentro
-questionContainer.classList.add("question"); // assegno classe
-const question = document.createElement("h3"); //creo vero e proprio tag per domanda
-question.textContent = quiz[currentQuestion].question; // per il testo entro nell'indici di array con quadre e con punto seleziono
-// solo question che è quello che mi serve
 
-questionContainer.appendChild(question); // metto nel dom l'h3 nel div
-quizContainer.appendChild(questionContainer); // metto tutto nel main
+function clearAll() {
+  quizContainer.innerHTML = ""; //SUPERIMPORTANTISSIMO!!!!!! Per cambiare pagina cancello tutto e riparte il ciclo
+}
+function showQuestion() {
+  clearAll();
+  const questionContainer = document.createElement("div"); //creo elemento div dentro
+  questionContainer.classList.add("question"); // assegno classe
+  const question = document.createElement("h3"); //creo vero e proprio tag per domanda
+  question.textContent = quiz[currentQuestion].question; // per il testo entro nell'indici di array con quadre e con punto seleziono
+  // solo question che è quello che mi serve
 
-const answersContainer = document.createElement("div"); // div contenitore per domande
-answersContainer.classList.add("answersContainer"); // la sua classe
+  questionContainer.appendChild(question); // metto nel dom l'h3 nel div
+  quizContainer.appendChild(questionContainer); // metto tutto nel main
 
-for (let i = 0; i < quiz[currentQuestion].answers.length; i++) {
-  //ciclo per poter leggere tutte le posizioni relative alle risposte  la proprietà answers ha un array
-  const button = document.createElement("button"); // creo un bottone per ognuna
+  const answersContainer = document.createElement("div"); // div contenitore per domande
+  answersContainer.classList.add("answersContainer"); // la sua classe
 
-  button.textContent = quiz[currentQuestion].answers[i]; //prendo il testo di ogni posizione e lo inserisco
-  answersContainer.appendChild(button); //metto il button nel div
-  button.addEventListener("click", function (click) {
-    //faccio si che il bottone sia pronto a far qualcosa quando cliccato
-    console.log("CLICCATA RISPOSTA!", click); //test
-    if (currentQuestion < quiz.length - 1) {
-      // lo ciclo per dirgli se le domande ancora non sono finite
-      currentQuestion++; // aumenta posizione che leggi dell'array
-    } else {
-      console.log("finito"); // da capire come cambiare pagina
-    }
-  });
+  for (let i = 0; i < quiz[currentQuestion].answers.length; i++) {
+    //ciclo per poter leggere tutte le posizioni relative alle risposte  la proprietà answers ha un array
+    const button = document.createElement("button"); // creo un bottone per ognuna
+
+    button.textContent = quiz[currentQuestion].answers[i]; //prendo il testo di ogni posizione e lo inserisco
+    answersContainer.appendChild(button); //metto il button nel div
+    button.addEventListener("click", function () {
+      if (currentQuestion < quiz.length - 1) {
+        currentQuestion++; //  cambio indice
+        showQuestion(); //  ridisegno tutto
+      } else {
+        console.log("finito");
+      }
+    });
+  }
+
+  questionContainer.appendChild(answersContainer); // le metto dentro in modo tale che funzionino insieme per apparire e sparire
+  quizContainer.appendChild(questionContainer);
+  // anche per css più easy da gestire .. forse
 }
 
-questionContainer.appendChild(answersContainer); // le metto dentro in modo tale che funzionino insieme per apparire e sparire
-// anche per css più easy da gestire .. forse
+showQuestion();
