@@ -4,18 +4,10 @@ body {
 }
 
 #timer-box {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-
   /* font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal; */
-
-  height: 110px;
-  box-sizing: border-box;
 
   /* background-color: red; */
   position: fixed;
