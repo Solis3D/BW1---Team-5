@@ -68,20 +68,22 @@ const answersContainer = document.createElement("div"); // div contenitore per d
 answersContainer.classList.add("answersContainer"); // la sua classe
 
 for (let i = 0; i < quiz[currentQuestion].answers.length; i++) {
-  //ciclo per poter leggere tutte le posizioni relative alle risposte
-  // la proprietà answers ha un array
-  const button = document.createElement("button"); // creo un bottone per ogni posizione letta
-  button.textContent = quiz[currentQuestion].answers[i]; // gli inserisco quello che c è dentro ciascuno indice come detto sopra
-  answersContainer.appendChild(button); // inserisco dentro il bottone
+  //ciclo per poter leggere tutte le posizioni relative alle risposte  la proprietà answers ha un array
+  const button = document.createElement("button"); // creo un bottone per ognuna
+
+  button.textContent = quiz[currentQuestion].answers[i]; //prendo il testo di ogni posizione e lo inserisco
+  answersContainer.appendChild(button); //metto il button nel div
+  button.addEventListener("click", function (click) {
+    //faccio si che il bottone sia pronto a far qualcosa quando cliccato
+    console.log("CLICCATA RISPOSTA!", click); //test
+    if (currentQuestion < quiz.length - 1) {
+      // lo ciclo per dirgli se le domande ancora non sono finite
+      currentQuestion++; // aumenta posizione che leggi dell'array
+    } else {
+      console.log("finito"); // da capire come cambiare pagina
+    }
+  });
 }
 
 questionContainer.appendChild(answersContainer); // le metto dentro in modo tale che funzionino insieme per apparire e sparire
 // anche per css più easy da gestire .. forse
-
-//DA METTER DENTRO
-
-button.addEventListener("click", function (x) {
-  // aggiungo click a risposta che farà qualcosa
-  console.log("CLICCATA RISPOSTA!", x);
-  // per vedere se funziona
-});
