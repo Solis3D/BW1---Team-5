@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benchmark - Welcome Page</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./assets/images/epicode_logo.png" alt="EPICODE Logo" class="logo" />
+      <div class="container">
+        <h1>Welcome to <br /><span class="highlight"> your exam</span></h1>
+      </div>
+    </header>
+    <main>
+      <section class="instructions">
+        <h2 id="info">Instructions</h2>
+        <p>We don't expect most engineers to know the answer to all of these</p>
+        <p>questions, so don't worry if you're unsure of a few of them.</p>
+      </section>
+      <div class="list">
+        <ul>
+          <li>Each question is <span class="highlight">timed</span> and can only be <span class="highlight">answered once</span>.</li>
+          <li>Changing browser tab or opening other windows will<span class="highlight"> invalidate the question</span>.</li>
+          <li>This exam will take approx.<span class="highlight">0-5 minutes</span>.</li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <form class="checkbox-container">
+        <input type="checkbox" id="terms" />
+        <label for="terms"> I promise to answer myself without help from anyone </label>
+        <button type="submit">PROCEED</button>
+      </form>
+    </footer>
+  </body>
+</html>

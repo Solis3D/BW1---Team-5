@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap");
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin-inline: 10em 10em;
+  margin-block: 3em 6em;
+  background-image: url("./images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.logo {
+  width: 200px;
+  height: 50px;
+}
+
+h1 {
+  color: white;
+  font-family: "Outfit";
+  font-weight: 400;
+  text-align: left;
+  margin-block: 1.5em 0.5em;
+  line-height: 0.8em;
+  font-size: 60px;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.bold {
+  color: white;
+}
+
+.list {
+  margin-block: 4em 2em;
+}
+
+li {
+  color: white;
+  font-family: "Inter";
+  font-size: 16px;
+  line-height: 1.7em;
+}
+
+#info {
+  font-family: "Outfit";
+  font-size: 2.2em;
+  color: #d20094;
+  margin-bottom: 0.7em;
+}
+
+p {
+  color: white;
+  font-size: 16px;
+  font-family: "Inter";
+  line-height: 0.4em;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: #d20094;
+  cursor: pointer;
+}
+
+.checkbox-container label {
+  color: white;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.checkbox-container input[type="checkbox"],
+.checkbox-container label {
+  display: inline-block;
+  vertical-align: middle; /* questo allinea la checkbox al testo dell'etichetta (label) */
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  appearance: none;
+  border: 0.7mm solid white;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* stato checked */
+.checkbox-container input[type="checkbox"]:checked {
+  background-color: #d20094;
+}
+
+/* questo è per modificare la spunta della checkbox */
+.checkbox-container input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  display: block;
+}
+
+.checkbox-container button {
+  margin-left: 20em;
+  background-color: #00ffff;
+  border: none;
+  padding-inline: 2.5em;
+  padding-block: 0.7em;
+  box-shadow: 0px 0px 40px 5px #00ffff9a;
+  font-size: 24px;
+  font-family: "Inter";
+  font-weight: bold;
+}
+
+.checkbox-container {
+  margin-top: 5em;
+}
