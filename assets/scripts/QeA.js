@@ -55,6 +55,7 @@ let currentQuestion = 0; //parto da singola domanda perchè se ciclo escono tutt
 //IMPORTATE current question diventa praticamente un indice da trattare come tale
 // perchè di partenza ho un array quindi quello zero è un indice d'array contenente un oggetto
 const quizContainer = document.getElementById("quiz"); // prendo contenitore con id
+let score = 0; // variabile per tener conto del punteggio finale
 
 function clearAll() {
   quizContainer.innerHTML = ""; //SUPERIMPORTANTISSIMA!!!!!! Per cambiare pagina cancello tutto e riparte il ciclo
@@ -79,11 +80,22 @@ function showQuestion() {
     button.textContent = quiz[currentQuestion].answers[i]; //prendo il testo di ogni posizione e lo inserisco
     answersContainer.appendChild(button); //metto il button nel div
     button.addEventListener("click", function () {
+      if (i === parseInt(quiz[currentQuestion].correctAnswer) - 1) {
+        // if per confronto tra risp giusta e sbagliata -1 per differenza indice numero
+
+        score++; // 1 punto per domanda
+        alert("risposta corretta"); //SUPERFASTIDIOSO se da fare extra magari trovare un altro modo
+      } else {
+        alert("risposta errata");
+      }
+
       if (currentQuestion < quiz.length - 1) {
         currentQuestion++; //  cambio indice
         showQuestion(); //  ridisegno tutto
       } else {
         console.log("finito");
+
+        console.log(score);
       }
     });
   }
