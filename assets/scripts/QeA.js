@@ -1,51 +1,51 @@
 let quiz = [
   {
-    question: "Domanda 1",
+    question: "In computing, what does MIDI stand for? ",
     answers: ["Risposta1", "Risposta2", "Risposta3", "Risposta4"],
     correctAnswer: "1",
   },
   {
-    question: "Domanda 2",
+    question: "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
     answers: ["1", "2", "3", "4"],
     correctAnswer: "2",
   },
   {
-    question: "Domanda 3",
+    question: "The numbering system with a radix of 16 is more commonly referred to as",
     answers: ["1", "2", "3"],
     correctAnswer: "2",
   },
   {
-    question: "Domanda 4",
+    question: "What does the computer software acronym JVM stand for? ",
     answers: ["1", "2", "3", "4"],
     correctAnswer: "4",
   },
   {
-    question: "Domanda 5",
+    question: "The series of the Intel HD graphics generation succeeding that of the 5000 and 6000 series (Broadwell) is called:",
     answers: ["1", "2"],
     correctAnswer: "2",
   },
   {
-    question: "Domanda 6",
+    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
     answers: ["1", "2"],
     correctAnswer: "2",
   },
   {
-    question: "Domanda 7",
+    question: "What programming language was GitHub written in?",
     answers: ["1", "2", "3", "4"],
     correctAnswer: "3",
   },
   {
-    question: "Domanda 8",
+    question: "What is the most preferred image format used for logos in the Wikimedia database?",
     answers: ["1", "2", "3", "4"],
     correctAnswer: "3",
   },
   {
-    question: "Domanda 9",
+    question: "A Mac is not a PC",
     answers: ["1", "2", "3"],
     correctAnswer: "1",
   },
   {
-    question: "Domanda 10",
+    question: "Time on Computers is measured via the EPOX System.",
     answers: ["1", "2", "3", "4"],
     correctAnswer: "3",
   },
