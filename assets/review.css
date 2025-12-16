@@ -75,21 +75,26 @@ input::placeholder {
 }
 
 #stars-div {
-  margin-block: 3em 7em;
+  margin-top: 3em;
   min-height: 100px;
+}
+
+#rate-div {
+  margin-bottom: 3em;
 }
 
 .star {
   display: inline-block;
   color: #141e69;
   padding-inline: 1em;
+  cursor: pointer;
 }
 
 .star.active {
   color: #00ffff;
 }
 
-.star.over {
+.star.hover {
   color: red;
 }
 

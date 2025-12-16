@@ -35,9 +35,10 @@ const addStars = function () {
 };
 addStars();
 
-// funzione che gestisce dinamicamente gli stili delle stelle, cambiando il colore al click. Dalla prima stellina fino a quella cliccata.
+// funzione che gestisce dinamicamente gli stili delle stelle, cambiando il colore al click (dalla prima stellina fino a quella cliccata) e cambiando il colore all'hover del mouse.
 const clickOnStar = function () {
   const star = document.querySelectorAll(".star");
+  let selectedIndex = -1;
 
   for (let i = 0; i < star.length; i++) {
     star[i].addEventListener("click", function () {
