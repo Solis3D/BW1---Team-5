@@ -88,14 +88,23 @@ input::placeholder {
   color: #141e69;
   padding-inline: 1em;
   cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
+/* classe usata per il cambio colore dell'svg quando cliccato */
 .star.active {
   color: #00ffff;
 }
 
+/* classe usata per rendere più grandi le stelline quando ci passo su con il mouse */
 .star.hover {
-  color: red;
+  transform: scale(1.2);
+}
+
+/* classe usata per aggiungere un bordino colorato alle stelline quando ci passo su con il mouse */
+.star.hover path {
+  stroke: #900080;
+  stroke-width: 2.5;
 }
 
 .divider {
