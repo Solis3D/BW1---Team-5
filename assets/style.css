@@ -104,8 +104,9 @@ footer button {
 .resultsTest {
   color: white;
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 8rem;
   font-size: 2rem;
+  margin-bottom: 3rem;
 }
 .resultsTest p,
 h1 {
@@ -121,10 +122,10 @@ h1 {
   display: inline-block;
   margin-inline: 5rem;
 }
-#container {
+/* #container {
   width: 100%;
   height: 100%;
-}
+} */
 
 /* bottone per dare una  recensione */
 #rateUs {
