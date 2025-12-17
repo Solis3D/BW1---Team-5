@@ -58,15 +58,18 @@ let quiz = [
 
 let currentQuestion = 0; //parto da singola domanda perchè se ciclo escono tutte insieme sulla pagina.
 //IMPORTATE current question diventa praticamente un indice da trattare come tale
-// perchè di partenza ho un array quindi quello zero è un indice d'array contenente un oggetto
-const quizContainer = document.getElementById("quiz"); // prendo contenitore con id
-let score = 0; // variabile per tener conto del punteggio finale
-let selectedAnswer = null; // per cambiare da avanti con clicco risposta a avanti con bottone serve variabile appoggio per nuovo confronto
-
+//currentQuestion è una variabile che rappresenta l’indice della domanda attualmente visualizzata.
+//Serve per accedere all’oggetto corretto dell’array quiz e permette di avanzare sequenzialmente nel quiz usando un semplice incremento.
+let score = 0; // variabile per tener conto del punteggio finale, segna solo risposte corrette qui dentro
+// fuori dalla variabile per non resettarsi ogni giro e per poter esser usata anche poi
+let selectedAnswer = null; //  variabile d' appoggio per confronto con con risposta corretta, qui ci finirà un INDICE, null perchè parte da vuoto
+const quizContainer = document.getElementById("quiz"); // prendo contenitore main html generale con id e lo rendo una variabile js
 function clearAll() {
-  quizContainer.innerHTML = ""; //SUPERIMPORTANTISSIMA!!!!!! Per cambiare pagina cancello tutto e riparte il ciclo
+  quizContainer.innerHTML = ""; //SUPERIMPORTANTISSIMA!!!!!! Per cambiare domanda non cambio pagina ma cancello
+  // tutto contenuto quizContainer e riparte il ciclo
 }
 function showQuestion() {
+  // funzione per test vera e propria
   clearAll();
 
   const questionContainer = document.createElement("div"); //creo elemento div dentro
@@ -85,43 +88,63 @@ function showQuestion() {
   nextButton.textContent = "Avanti"; //testo nel bottone
   nextContainer.appendChild(nextButton); // inserisco il bottone nel div
 
+  // li appendo dopo nel tutto così prima gli do le cose da fare poi li metto
+
   for (let i = 0; i < quiz[currentQuestion].answers.length; i++) {
     //ciclo per poter leggere tutte le posizioni relative alle risposte  la proprietà answers ha un array
     const button = document.createElement("button"); // creo un bottone per ognuna
     button.classList.add("answerButton"); // classe per bottone css non ancora selezionato
     button.textContent = quiz[currentQuestion].answers[i]; //prendo il testo di ogni posizione e lo inserisco
     answersContainer.appendChild(button); //metto il button nel div
-    button.addEventListener("click", function applySelectedClass() {
-      // creo funzione per ascoltare e fare
-      const allButtons = answersContainer.querySelectorAll(".answerButton"); // per selezionarli tutti
-      allButtons.forEach(function (btn) {
-        // per ognuno
-        btn.classList.remove("selected"); // devo toglierli se no ogni volta che schiaccio rimangono schiacciati
-      });
+    button.addEventListener("click", function (event) {
+      //funzione per associare al click altro
+      const allButtons = answersContainer.querySelectorAll(".answerButton"); // variabile per selezionare tutti i bottoni
 
-      button.classList.add("selected"); //nuova classe per quelli selezionati
+      allButtons.forEach((btn) => {
+        btn.classList.remove("selected"); // al click per ogni bottone tolgo la classe selezionata.. serve per non farli rimanere
+      }); // selezionati quando ne schiaccio p iù di uno
 
-      selectedAnswer = i;
+      event.target.classList.add("selected"); // per il target del click metto la classe selezionato
+      selectedAnswer = i; // salvo la mia risposta siccome sono ancora nel ciclo con i dentro la constate che mi ero creata
     });
   }
 
   nextButton.addEventListener("click", function () {
-    if (selectedAnswer === null) {
-      return; // non vai avanti se non hai scelto
-    }
+    if (selectedAnswer === null) return; // niente risposta → niente avanti
 
-    if (selectedAnswer === parseInt(quiz[currentQuestion].correctAnswer) - 1) {
+    const rightAnswer = parseInt(quiz[currentQuestion].correctAnswer) - 1;
+    const allButtons = answersContainer.querySelectorAll(".answerButton");
+
+    // colorazione feedback
+    allButtons.forEach((btn, index) => {
+      if (index === rightAnswer) {
+        btn.classList.add("correctAnswer"); // verde
+      }
+
+      if (index === selectedAnswer && selectedAnswer !== rightAnswer) {
+        btn.classList.add("wrongAnswer"); // rosso
+      }
+
+      btn.disabled = true; // blocco click
+    });
+
+    // aggiorno punteggio
+    if (selectedAnswer === rightAnswer) {
       score++;
     }
 
-    selectedAnswer = null; // reset per la prossima domanda
+    // attendo prima di cambiare domanda
+    setTimeout(function () {
+      selectedAnswer = null;
 
-    if (currentQuestion < quiz.length - 1) {
-      currentQuestion++;
-      showQuestion();
-    } else {
-      // window.location.assign("./results.html?score=" + score);
-    }
+      if (currentQuestion < quiz.length - 1) {
+        currentQuestion++;
+        showQuestion();
+      } else {
+        // risultati finali
+        // window.location.assign("./results.html?score=" + score);
+      }
+    }, 800);
   });
 
   questionContainer.appendChild(answersContainer); // le metto dentro in modo tale che funzionino insieme per apparire e sparire

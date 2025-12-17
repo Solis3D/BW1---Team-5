@@ -5,3 +5,11 @@
 .selected {
   background-color: blueviolet;
 }
+
+.correctAnswer {
+  background-color: greenyellow;
+}
+
+.wrongAnswer {
+  background-color: red;
+}
