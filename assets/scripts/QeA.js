@@ -61,6 +61,7 @@ let currentQuestion = 0; //parto da singola domanda perchè se ciclo escono tutt
 // perchè di partenza ho un array quindi quello zero è un indice d'array contenente un oggetto
 const quizContainer = document.getElementById("quiz"); // prendo contenitore con id
 let score = 0; // variabile per tener conto del punteggio finale
+let selectedAnswer = null; // per cambiare da avanti con clicco risposta a avanti con bottone serve variabile appoggio per nuovo confronto
 
 function clearAll() {
   quizContainer.innerHTML = ""; //SUPERIMPORTANTISSIMA!!!!!! Per cambiare pagina cancello tutto e riparte il ciclo
@@ -78,30 +79,50 @@ function showQuestion() {
   const answersContainer = document.createElement("div"); // div contenitore per domande
   answersContainer.classList.add("answersContainer"); // la sua classe
 
+  const nextContainer = document.createElement("div"); // creo div contenitore tasto avanti
+  nextContainer.classList.add("nextContainer"); // aggiungo classe
+  const nextButton = document.createElement("button"); //creo bottone
+  nextButton.textContent = "Avanti"; //testo nel bottone
+  nextContainer.appendChild(nextButton); // inserisco il bottone nel div
+
   for (let i = 0; i < quiz[currentQuestion].answers.length; i++) {
     //ciclo per poter leggere tutte le posizioni relative alle risposte  la proprietà answers ha un array
     const button = document.createElement("button"); // creo un bottone per ognuna
-
+    button.classList.add("answerButton"); // classe per bottone css non ancora selezionato
     button.textContent = quiz[currentQuestion].answers[i]; //prendo il testo di ogni posizione e lo inserisco
     answersContainer.appendChild(button); //metto il button nel div
-    button.addEventListener("click", function () {
-      if (i === parseInt(quiz[currentQuestion].correctAnswer) - 1) {
-        // if per confronto tra risp giusta e sbagliata -1 per differenza indice numero
+    button.addEventListener("click", function applySelectedClass() {
+      // creo funzione per ascoltare e fare
+      const allButtons = answersContainer.querySelectorAll(".answerButton"); // per selezionarli tutti
+      allButtons.forEach(function (btn) {
+        // per ognuno
+        btn.classList.remove("selected"); // devo toglierli se no ogni volta che schiaccio rimangono schiacciati
+      });
 
-        score++; // 1 punto per domanda
-        alert("risposta corretta"); //SUPERFASTIDIOSO se da fare extra magari trovare un altro modo
-      } else {
-        alert("risposta errata");
-      }
+      button.classList.add("selected"); //nuova classe per quelli selezionati
 
-      if (currentQuestion < quiz.length - 1) {
-        currentQuestion++; //  cambio indice
-        showQuestion(); //  ridisegno tutto
-      } else {
-        window.location.assign("./results.html?score=" + score); // PER PORTARE DI LA IL PARAMETRO E COLLEGARE UN ALTRO FOGLIO
-      }
+      selectedAnswer = i;
     });
   }
+
+  nextButton.addEventListener("click", function () {
+    if (selectedAnswer === null) {
+      return; // non vai avanti se non hai scelto
+    }
+
+    if (selectedAnswer === parseInt(quiz[currentQuestion].correctAnswer) - 1) {
+      score++;
+    }
+
+    selectedAnswer = null; // reset per la prossima domanda
+
+    if (currentQuestion < quiz.length - 1) {
+      currentQuestion++;
+      showQuestion();
+    } else {
+      // window.location.assign("./results.html?score=" + score);
+    }
+  });
 
   questionContainer.appendChild(answersContainer); // le metto dentro in modo tale che funzionino insieme per apparire e sparire
 
@@ -111,6 +132,7 @@ function showQuestion() {
   questionContainer.appendChild(progress);
   quizContainer.appendChild(questionContainer);
   // anche per css più easy da gestire .. forse
+  quizContainer.appendChild(nextContainer);
 }
 
 showQuestion();
