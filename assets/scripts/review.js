@@ -1,7 +1,7 @@
-// prendo i div con id stars-div dal DOM.
+// prendo il div con id stars-div dal DOM.
 const starsDiv = document.getElementById("stars-div");
-
-// funzione che aggiunge le stelline, senza doverlo fare a mano.
+let rate = 0;
+// funzione che genera 10 stelline creando 10 div con classe "star" e in cui inserisco il codice SVG come innerHTML
 const addStars = function () {
   for (let i = 0; i < 10; i++) {
     const newStar = document.createElement("div");
@@ -35,17 +35,37 @@ const addStars = function () {
 };
 addStars();
 
-// funzione che gestisce dinamicamente gli stili delle stelle, cambiando il colore al click. Dalla prima stellina fino a quella cliccata.
+// funzione che gestisce dinamicamente gli stili delle stelle, cambiando il colore al click (dalla prima stellina fino a quella cliccata) e cambiando il colore all'hover del mouse.
 const clickOnStar = function () {
   const star = document.querySelectorAll(".star");
 
   for (let i = 0; i < star.length; i++) {
     star[i].addEventListener("click", function () {
+      // imposto la classe "active" su tutte le stelle con indice <= di quella cliccata e aggiorno rate
       for (let j = 0; j < star.length; j++) {
         star[j].classList.toggle("active", j <= i);
       }
+      rate = i + 1;
+      console.log("Il rating dato dall'utente è", rate, "/ 10");
+    });
+
+    // imposto la classe "hover" come preview su tutte le stelle con indice <= di quella su cui passo col mouse
+    star[i].addEventListener("mouseenter", function () {
+      for (let j = 0; j < star.length; j++) {
+        star[j].classList.toggle("hover", j <= i);
+      }
     });
   }
+
+  //aggiungo event listener mouseleave per togliere la classe hover e ritornare soltanto a quella active
+  starsDiv.addEventListener("mouseleave", function () {
+    for (let j = 0; j < star.length; j++) {
+      star[j].classList.remove("hover");
+
+      star[j].classList.toggle("active", j < rate);
+    }
+  });
+  return rate;
 };
 
 clickOnStar();

@@ -49,7 +49,8 @@ input {
   font-size: 28px;
   font-weight: 300;
   border: none;
-  background-color: rgba(255, 255, 255, 0);
+  border-style: none;
+  background-color: transparent;
   margin-left: 3.2em;
   margin-top: 1em;
   color: white;
@@ -70,27 +71,46 @@ header img {
   margin-left: 10em;
 }
 
+textarea:focus,
+input:focus {
+  outline-style: none;
+}
+
 input::placeholder {
   color: #656771;
 }
 
 #stars-div {
-  margin-block: 3em 7em;
+  margin-top: 3em;
   min-height: 100px;
+}
+
+#rate-div {
+  margin-bottom: 3em;
 }
 
 .star {
   display: inline-block;
   color: #141e69;
   padding-inline: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
+/* classe usata per il cambio colore dell'svg quando cliccato */
 .star.active {
   color: #00ffff;
 }
 
-.star.over {
-  color: red;
+/* classe usata per rendere più grandi le stelline quando ci passo su con il mouse */
+.star.hover {
+  transform: scale(1.2);
+}
+
+/* classe usata per aggiungere un bordino colorato alle stelline quando ci passo su con il mouse */
+.star.hover path {
+  stroke: #900080;
+  stroke-width: 2.5;
 }
 
 .divider {
