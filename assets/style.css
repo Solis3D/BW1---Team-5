@@ -9,9 +9,7 @@ body {
 /* HEADER */
 #header {
   margin-block: 2rem;
-
   padding-inline: 2rem;
-  /* border: solid black 1px; */
 }
 #header img {
   width: 10rem;
@@ -23,25 +21,22 @@ body {
   border-radius: 50%;
 }
 
-/* MAIN */
-main {
+#sectionForQuiz {
   /* position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center; */
+  text-align: center; 
+   margin-inline: auto; */
   text-align: center;
   margin-top: 15rem;
   margin-bottom: 10rem;
-  /* margin-inline: auto; */
 }
 
 h3 {
   color: white;
   font-size: 3rem;
-  font-weight: bold;
-  /* padding-inline: 10rem; */
-  margin-inline: all;
+  font-weight: bolder;
 }
 
 /* classe per i bottoni per le risposte */
@@ -62,12 +57,13 @@ h3 {
 .answersContainer {
   display: inline-block;
 }
-/* FOOTER */
-footer {
+/* ULTIMA  PARTE  */
+.progress {
   color: white;
   text-align: center;
   font-size: large;
 }
+
 footer span {
   color: purple;
 }
