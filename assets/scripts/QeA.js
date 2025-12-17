@@ -98,9 +98,7 @@ function showQuestion() {
         currentQuestion++; //  cambio indice
         showQuestion(); //  ridisegno tutto
       } else {
-        console.log("finito");
-
-        console.log(score);
+        window.location.assign("./results.html?score=" + score); // PER PORTARE DI LA IL PARAMETRO E COLLEGARE UN ALTRO FOGLIO
       }
     });
   }
@@ -116,3 +114,7 @@ function showQuestion() {
 }
 
 showQuestion();
+
+// 2 pagine meglio .. per cambiare pagina bisogna caricare la pagina results... con le 2 variabili
+
+// carico il nuovo doc html result con paramentro nell'indirizzo .. window.location.assign().. window.location.assign('./results.html')
