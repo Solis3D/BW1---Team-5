@@ -106,59 +106,62 @@ function showQuestion() {
 
       event.target.classList.add("selected"); // per il target del click metto la classe selezionato
       selectedAnswer = i; // salvo la mia risposta siccome sono ancora nel ciclo con i dentro la constate che mi ero creata
-    });
+    }); // chiusura della funzione dentro la funzione addEventListener
   }
 
   nextButton.addEventListener("click", function () {
+    // funzione per bottone avanti sotto
     if (selectedAnswer === null) return; // niente risposta → niente avanti
 
-    const rightAnswer = parseInt(quiz[currentQuestion].correctAnswer) - 1;
-    const allButtons = answersContainer.querySelectorAll(".answerButton");
+    const rightAnswer = parseInt(quiz[currentQuestion].correctAnswer) - 1; // creo variabile per risposta giusta -1 per indice risposte sopra
+    const allButtons = answersContainer.querySelectorAll(".answerButton"); // variabile per tutti i bottoni
 
-    // colorazione feedback
     allButtons.forEach((btn, index) => {
+      //uso index e non il testo di     correctAnswer perchè può essere una cosa più intercambiabile e il testo che può avere spazi maiuscole ecc
       if (index === rightAnswer) {
+        // comparo
         btn.classList.add("correctAnswer"); // verde
       }
 
       if (index === selectedAnswer && selectedAnswer !== rightAnswer) {
+        // serve fare doppia comparazione se no diventano tutti rossi gli altri non giusti
         btn.classList.add("wrongAnswer"); // rosso
       }
 
-      btn.disabled = true; // blocco click
+      btn.disabled = true; // blocco click .. è utile nel timeout per non dar l'idea che si possa "aggirare il sistema"
+      // e schiacciare la risposta corretta dopo averla vista illuminare. Anche se in realtà i risultati rimangono invariati
     });
 
-    // aggiorno punteggio
     if (selectedAnswer === rightAnswer) {
-      score++;
+      score++; // aggiorno punteggio
     }
 
-    // attendo prima di cambiare domanda
     setTimeout(function () {
-      selectedAnswer = null;
+      // funzione per cambiare domanda con attesa per mostrare il cambio di classi risp giusta o sbagliata
+      selectedAnswer = null; // lo devo rimettere a null se no per la domanda dopo si ricorda l'indice selezionato dalla domanda prima e casino
 
       if (currentQuestion < quiz.length - 1) {
+        //per mandare avanti le domande guardo che ce ne siano ancora
         currentQuestion++;
-        showQuestion();
+        showQuestion(); //riparte tutto da capo richiamandola
       } else {
-        // risultati finali
-        // window.location.assign("./results.html?score=" + score);
+        // se non ne ha più mando a pagina dopo
+        // window.location.assign("./results.html?score=" + score + "&total=" + quiz.length);
       }
     }, 800);
   });
 
-  questionContainer.appendChild(answersContainer); // le metto dentro in modo tale che funzionino insieme per apparire e sparire
-
+  questionContainer.appendChild(answersContainer); // le metto effetivamente in html solo una volta avergli detto cosa fare
   const progress = document.createElement("section"); //per sotto dove domande su 10 creo una section
   progress.classList.add("progress"); // con classe
   progress.textContent = "Domanda " + (currentQuestion + 1) + " / " + quiz.length; // il suo contenuto +1 perchè indice da 0
   questionContainer.appendChild(progress);
   quizContainer.appendChild(questionContainer);
-  // anche per css più easy da gestire .. forse
-  quizContainer.appendChild(nextContainer);
+
+  quizContainer.appendChild(nextContainer); // più easy da gestire css
 }
 
-showQuestion();
+showQuestion(); // parte effettivamente la prima domanda. All'inizio era solo per cambiare da una all'altra
 
 // 2 pagine meglio .. per cambiare pagina bisogna caricare la pagina results... con le 2 variabili
 
