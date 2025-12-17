@@ -19,6 +19,7 @@ body {
   position: fixed;
   top: 40px;
   right: 100px;
+  /* margin-inline: 2rem; */
 }
 
 #sectionForQuiz {
@@ -55,18 +56,47 @@ h3 {
   font-size: large;
   font-weight: 800;
 }
+
 .answersContainer {
   display: inline-block;
 }
-/* ULTIMA  PARTE  */
+/* classi per risposte */
+.answersContainer .correctAnswer {
+  background-color: green;
+}
+.answersContainer .wrongAnswer {
+  background-color: red;
+}
+/* FOOTER  */
+/* classe per la section che conterrà il numero della domanda corrente */
 .progress {
   color: white;
-  text-align: center;
+  text-align: left;
   font-size: large;
+  margin-left: 2rem;
+  margin-right: 77rem;
+  display: inline-block;
 }
-
 footer span {
   color: purple;
+}
+/* div che contiene il bottone nel footer  */
+
+footer div {
+  margin-right: 2rem;
+  /* padding-left: 80rem; */
+  display: inline-block;
+  text-align: right;
+}
+footer button {
+  background-color: transparent;
+  color: white;
+  height: 80px;
+  width: 300px;
+  margin-inline: 2rem;
+  font-size: large;
+  font-weight: 800;
+  cursor: pointer;
 }
 
 /* PAGINA RESULTS */
@@ -90,11 +120,6 @@ h1 {
 #graphSection div {
   display: inline-block;
   margin-inline: 5rem;
-}
-.correctAnswer {
-}
-
-.wrongAnswer {
 }
 #container {
   width: 100%;
