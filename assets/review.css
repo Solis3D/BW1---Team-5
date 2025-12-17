@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  background-image: url(./images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+header {
+  margin-bottom: 5em;
+}
+
+main {
+  text-align: center;
+  padding-inline: 20%;
+}
+
+form {
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-family: Outfit;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+button {
+  background-color: #00ffff;
+  border: none;
+  padding-inline: 4em;
+  padding-block: 1.5em;
+  margin-top: 4em;
+  margin-bottom: 3em;
+  box-shadow: 0px 0px 40px 5px #00ffff9a;
+}
+
+main h1 {
+  font-family: Outfit;
+  font-size: 60px;
+  font-weight: bolder;
+  word-spacing: 2px;
+}
+
+input {
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 300;
+  border: none;
+  border-style: none;
+  background-color: transparent;
+  margin-left: 3.2em;
+  margin-top: 1em;
+  color: white;
+}
+
+main p {
+  font-family: Inter;
+  font-size: 38px;
+  font-weight: 400;
+  color: rgb(226, 226, 226);
+  word-spacing: 1.3px;
+  letter-spacing: 0.5px;
+}
+
+header img {
+  width: 250px;
+  margin-top: 3em;
+  margin-left: 10em;
+}
+
+textarea:focus,
+input:focus {
+  outline-style: none;
+}
+
+input::placeholder {
+  color: #656771;
+}
+
+#stars-div {
+  margin-top: 3em;
+  min-height: 100px;
+}
+
+#rate-div {
+  margin-bottom: 3em;
+}
+
+.star {
+  display: inline-block;
+  color: #141e69;
+  padding-inline: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* classe usata per il cambio colore dell'svg quando cliccato */
+.star.active {
+  color: #00ffff;
+}
+
+/* classe usata per rendere più grandi le stelline quando ci passo su con il mouse */
+.star.hover {
+  transform: scale(1.2);
+}
+
+/* classe usata per aggiungere un bordino colorato alle stelline quando ci passo su con il mouse */
+.star.hover path {
+  stroke: #900080;
+  stroke-width: 2.5;
+}
+
+.divider {
+  height: 3px;
+  background-color: #900080;
+  margin-block: 0.7em;
+  margin-inline: auto;
+  width: 95%;
+}
