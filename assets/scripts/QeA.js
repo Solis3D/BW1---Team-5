@@ -85,6 +85,7 @@ function showQuestion() {
   const nextContainer = document.createElement("div"); // creo div contenitore tasto avanti
   nextContainer.classList.add("nextContainer"); // aggiungo classe
   const nextButton = document.createElement("button"); //creo bottone
+  nextButton.classList.add("nextButton"); // classe per bottone avanti
   nextButton.textContent = "Avanti"; //testo nel bottone
   nextContainer.appendChild(nextButton); // inserisco il bottone nel div
 

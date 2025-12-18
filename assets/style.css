@@ -82,13 +82,17 @@ footer span {
 }
 /* div che contiene il bottone nel footer  */
 
-footer div {
+.nextContainer {
+  position: relative;
+
   margin-right: 2rem;
   /* padding-left: 80rem; */
   display: inline-block;
   text-align: right;
 }
-footer button {
+.nextButton {
+  float: right;
+
   background-color: transparent;
   color: white;
   height: 80px;
