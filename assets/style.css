@@ -147,3 +147,7 @@ h1 {
   font-weight: 700;
   cursor: pointer;
 }
+
+.answerButton .selected {
+  background-color: purple;
+}
