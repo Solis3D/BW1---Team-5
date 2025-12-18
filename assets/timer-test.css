@@ -1,0 +1,18 @@
+/* questa pagina è provvisoria per testare il timer tramite timer-test.html, va poi eliminata prima della consegna */
+
+body {
+  background-image: url("./images/bg.jpg");
+  background-size: cover;
+}
+
+#timer-box {
+  /* font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal; */
+
+  /* background-color: red; */
+  position: fixed;
+  top: 40px;
+  right: 100px;
+}
