@@ -17,10 +17,16 @@ body {
 }
 #timer-box {
   float: right;
+
   /*position: fixed;
   top: 40px;
   right: 100px;
   /* margin-inline: 2rem; */
+}
+#quiz {
+  text-align: center;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
 
 #sectionForQuiz {
@@ -62,19 +68,22 @@ h3 {
   display: inline-block;
 }
 /* classi per risposte */
-.answersContainer .correctAnswer {
+.answersContainer .selected {
+  background-color: #3a2656;
+}
+#quiz .answersContainer .correctAnswer {
   background-color: green;
 }
-.answersContainer .wrongAnswer {
+#quiz .answersContainer .wrongAnswer {
   background-color: red;
 }
+
 /* FOOTER  */
 /* classe per la section che conterrà il numero della domanda corrente */
 .progress {
   color: white;
   text-align: left;
   font-size: large;
-  margin-left: 2rem;
   margin-right: 77rem;
   display: inline-block;
 }
@@ -84,21 +93,19 @@ footer span {
 /* div che contiene il bottone nel footer  */
 
 .nextContainer {
+  float: right;
   position: relative;
-
   margin-right: 2rem;
   /* padding-left: 80rem; */
-  display: inline-block;
+  /* display: inline-block; */
   text-align: right;
 }
-.nextButton {
-  float: right;
-
+#quiz .nextContainer .nextButton {
   background-color: transparent;
   color: white;
-  height: 80px;
+  height: 70px;
   width: 300px;
-  margin-inline: 2rem;
+  /* margin-inline: 2rem; */
   font-size: large;
   font-weight: 800;
   cursor: pointer;
