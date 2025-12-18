@@ -146,7 +146,7 @@ function showQuestion() {
         showQuestion(); //riparte tutto da capo richiamandola
       } else {
         // se non ne ha più mando a pagina dopo
-        // window.location.assign("./results.html?score=" + score + "&total=" + quiz.length);
+        window.location.assign("./results.html?score=" + score + "&total=" + quiz.length);
       }
     }, 800);
   });
