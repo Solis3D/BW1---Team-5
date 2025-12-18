@@ -8,8 +8,8 @@ html {
 
 body {
   height: 100%;
-  margin-inline: 10em 10em;
-  margin-block: 3em 6em;
+  margin-inline: 20em 10em;
+  margin-block: 10em 6em;
   background-image: url("./images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -110,7 +110,7 @@ p {
 }
 
 .checkbox-container button {
-  margin-left: 10%;
+  margin-left: 35%;
   background-color: #00ffff;
   border: none;
   padding-inline: 2.5em;
