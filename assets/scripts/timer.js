@@ -3,7 +3,7 @@ console.log("timer online");
 // per inserire un timer nella pagina è necessario avere un div con id 'timer-box' <div id="timer-box"></div>
 // è sufficiente poi avviare la funzione timer() la funzione ha un parametro, i secondi. Alla
 // fine della funzione viene restituito un valore false. I secondi di default sono 30 secondi.
-
+let time;
 function timer(seconds = 30) {
   // seconds è il numero di secondi da cronometrare,
   let i = 0;
@@ -16,7 +16,7 @@ function timer(seconds = 30) {
   let bool = true;
 
   return new Promise((end) => {
-    const time = setInterval(() => {
+    time = setInterval(() => {
       seconds = seconds - 25 / 1000;
       //   qui va inserito codice da eseguire durante (ogni 25 millisecondi)
       //
@@ -40,6 +40,38 @@ function timer(seconds = 30) {
       if (seconds <= 0) {
         clearInterval(time);
         bool = false;
+        // rightAnswer = parseInt(quiz[currentQuestion].correctAnswer) - 1; // creo variabile per risposta giusta -1 per indice risposte sopra
+        // const allButtons = answersContainer.querySelectorAll(".answerButton"); // variabile per tutti i bottoni
+
+        // allButtons.forEach((btn, index) => {
+        //   //uso index e non il testo di     correctAnswer perchè può essere una cosa più intercambiabile e il testo che può avere spazi maiuscole ecc
+        //   if (index === rightAnswer) {
+        //     // comparo
+        //     btn.classList.add("correctAnswer"); // verde
+        //   }
+
+        //   if (index === selectedAnswer && selectedAnswer !== rightAnswer) {
+        //     // serve fare doppia comparazione se no diventano tutti rossi gli altri non giusti
+        //     btn.classList.add("wrongAnswer"); // rosso
+        //   }
+
+        //   btn.disabled = true; // blocco click .. è utile nel timeout per non dar l'idea che si possa "aggirare il sistema"
+        //   // e schiacciare la risposta corretta dopo averla vista illuminare. Anche se in realtà i risultati rimangono invariati
+        // });
+        // if (selectedAnswer === rightAnswer) {
+        //   score++; // aggiorno punteggio
+        // }
+
+        if (currentQuestion < quiz.length - 1) {
+          //per mandare avanti le domande guardo che ce ne siano ancora
+          currentQuestion++;
+
+          showQuestion(); //riparte tutto da capo richiamandola
+        } else {
+          // se non ne ha più mando a pagina dopo
+          window.location.assign("./results.html?score=" + score + "&total=" + quiz.length);
+        }
+
         // qui va inserito eventuale codice da eseguire alla fine
         end(bool);
       }
@@ -47,7 +79,7 @@ function timer(seconds = 30) {
   });
 }
 
-timer(5).then((result) => console.log(result));
+//timer(5).then((result) => console.log(result));
 
 function timerGenerator(timeInSeconds, remainingTimeIndex, elapsedTimeIndex) {
   //

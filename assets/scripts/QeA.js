@@ -55,7 +55,7 @@ let quiz = [
     correctAnswer: "1",
   },
 ];
-
+let rightAnswer;
 let currentQuestion = 0; //parto da singola domanda perchè se ciclo escono tutte insieme sulla pagina.
 //IMPORTATE current question diventa praticamente un indice da trattare come tale
 //currentQuestion è una variabile che rappresenta l’indice della domanda attualmente visualizzata.
@@ -71,6 +71,10 @@ function clearAll() {
 function showQuestion() {
   // funzione per test vera e propria
   clearAll();
+  clearInterval(time);
+  timer(30);
+
+  const timerZero = document.querySelector("#timer-box");
 
   const questionContainer = document.createElement("div"); //creo elemento div dentro
   questionContainer.classList.add("question"); // assegno classe
@@ -86,6 +90,8 @@ function showQuestion() {
   nextContainer.classList.add("nextContainer"); // aggiungo classe
   const nextButton = document.createElement("button"); //creo bottone
   nextButton.classList.add("nextButton"); // classe per bottone avanti
+  nextButton.id = "idNextButton";
+
   nextButton.textContent = "Avanti"; //testo nel bottone
   nextContainer.appendChild(nextButton); // inserisco il bottone nel div
 
@@ -114,7 +120,7 @@ function showQuestion() {
     // funzione per bottone avanti sotto
     if (selectedAnswer === null) return; // niente risposta → niente avanti
 
-    const rightAnswer = parseInt(quiz[currentQuestion].correctAnswer) - 1; // creo variabile per risposta giusta -1 per indice risposte sopra
+    rightAnswer = parseInt(quiz[currentQuestion].correctAnswer) - 1; // creo variabile per risposta giusta -1 per indice risposte sopra
     const allButtons = answersContainer.querySelectorAll(".answerButton"); // variabile per tutti i bottoni
 
     allButtons.forEach((btn, index) => {
@@ -144,6 +150,7 @@ function showQuestion() {
       if (currentQuestion < quiz.length - 1) {
         //per mandare avanti le domande guardo che ce ne siano ancora
         currentQuestion++;
+
         showQuestion(); //riparte tutto da capo richiamandola
       } else {
         // se non ne ha più mando a pagina dopo

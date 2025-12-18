@@ -16,7 +16,8 @@ body {
   text-align: left;
 }
 #timer-box {
-  position: fixed;
+  float: right;
+  /*position: fixed;
   top: 40px;
   right: 100px;
   /* margin-inline: 2rem; */
