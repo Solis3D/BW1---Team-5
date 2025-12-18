@@ -56,6 +56,7 @@ let quiz = [
   },
 ];
 let rightAnswer;
+let answersContainer;
 let currentQuestion = 0; //parto da singola domanda perchè se ciclo escono tutte insieme sulla pagina.
 //IMPORTATE current question diventa praticamente un indice da trattare come tale
 //currentQuestion è una variabile che rappresenta l’indice della domanda attualmente visualizzata.
@@ -72,9 +73,9 @@ function showQuestion() {
   // funzione per test vera e propria
   clearAll();
   clearInterval(time);
-  timer(30);
+  timer(45);
 
-  const timerZero = document.querySelector("#timer-box");
+  // const timerZero = document.querySelector("#timer-box");
 
   const questionContainer = document.createElement("div"); //creo elemento div dentro
   questionContainer.classList.add("question"); // assegno classe
@@ -83,7 +84,7 @@ function showQuestion() {
   // solo question che è quello che mi serve
   questionContainer.appendChild(question);
 
-  const answersContainer = document.createElement("div"); // div contenitore per domande
+  answersContainer = document.createElement("div"); // div contenitore per domande
   answersContainer.classList.add("answersContainer"); // la sua classe
 
   const nextContainer = document.createElement("div"); // creo div contenitore tasto avanti

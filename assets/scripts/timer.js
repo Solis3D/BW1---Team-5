@@ -1,4 +1,4 @@
-console.log("timer online");
+// console.log("timer online");
 
 // per inserire un timer nella pagina è necessario avere un div con id 'timer-box' <div id="timer-box"></div>
 // è sufficiente poi avviare la funzione timer() la funzione ha un parametro, i secondi. Alla
@@ -40,37 +40,45 @@ function timer(seconds = 30) {
       if (seconds <= 0) {
         clearInterval(time);
         bool = false;
-        // rightAnswer = parseInt(quiz[currentQuestion].correctAnswer) - 1; // creo variabile per risposta giusta -1 per indice risposte sopra
-        // const allButtons = answersContainer.querySelectorAll(".answerButton"); // variabile per tutti i bottoni
 
-        // allButtons.forEach((btn, index) => {
-        //   //uso index e non il testo di     correctAnswer perchè può essere una cosa più intercambiabile e il testo che può avere spazi maiuscole ecc
-        //   if (index === rightAnswer) {
-        //     // comparo
-        //     btn.classList.add("correctAnswer"); // verde
-        //   }
+        rightAnswer = parseInt(quiz[currentQuestion].correctAnswer) - 1;
 
-        //   if (index === selectedAnswer && selectedAnswer !== rightAnswer) {
-        //     // serve fare doppia comparazione se no diventano tutti rossi gli altri non giusti
-        //     btn.classList.add("wrongAnswer"); // rosso
-        //   }
+        const allButtons = answersContainer.querySelectorAll(".answerButton"); // variabile per tutti i bottoni
 
-        //   btn.disabled = true; // blocco click .. è utile nel timeout per non dar l'idea che si possa "aggirare il sistema"
-        //   // e schiacciare la risposta corretta dopo averla vista illuminare. Anche se in realtà i risultati rimangono invariati
-        // });
-        // if (selectedAnswer === rightAnswer) {
-        //   score++; // aggiorno punteggio
-        // }
+        allButtons.forEach((btn, index) => {
+          //uso index e non il testo di     correctAnswer perchè può essere una cosa più intercambiabile e il testo che può avere spazi maiuscole ecc
+          if (index === rightAnswer) {
+            // comparo
+            btn.classList.add("correctAnswer"); // verde
+          }
 
-        if (currentQuestion < quiz.length - 1) {
-          //per mandare avanti le domande guardo che ce ne siano ancora
-          currentQuestion++;
+          if (index === selectedAnswer && selectedAnswer !== rightAnswer) {
+            // serve fare doppia comparazione se no diventano tutti rossi gli altri non giusti
+            btn.classList.add("wrongAnswer"); // rosso
+          }
 
-          showQuestion(); //riparte tutto da capo richiamandola
-        } else {
-          // se non ne ha più mando a pagina dopo
-          window.location.assign("./results.html?score=" + score + "&total=" + quiz.length);
+          btn.disabled = true; // blocco click .. è utile nel timeout per non dar l'idea che si possa "aggirare il sistema"
+          // e schiacciare la risposta corretta dopo averla vista illuminare. Anche se in realtà i risultati rimangono invariati
+        });
+
+        if (selectedAnswer === rightAnswer) {
+          score++; // aggiorno punteggio
         }
+
+        setTimeout(function () {
+          // funzione per cambiare domanda con attesa per mostrare il cambio di classi risp giusta o sbagliata
+          selectedAnswer = null; // lo devo rimettere a null se no per la domanda dopo si ricorda l'indice selezionato dalla domanda prima e casino
+
+          if (currentQuestion < quiz.length - 1) {
+            //per mandare avanti le domande guardo che ce ne siano ancora
+            currentQuestion++;
+
+            showQuestion(); //riparte tutto da capo richiamandola
+          } else {
+            // se non ne ha più mando a pagina dopo
+            window.location.assign("./results.html?score=" + score + "&total=" + quiz.length);
+          }
+        }, 800);
 
         // qui va inserito eventuale codice da eseguire alla fine
         end(bool);
@@ -78,8 +86,6 @@ function timer(seconds = 30) {
     }, 25);
   });
 }
-
-//timer(5).then((result) => console.log(result));
 
 function timerGenerator(timeInSeconds, remainingTimeIndex, elapsedTimeIndex) {
   //
