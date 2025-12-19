@@ -163,7 +163,7 @@ function showQuestion() {
   questionContainer.appendChild(answersContainer); // le metto effetivamente in html solo una volta avergli detto cosa fare
   const progress = document.createElement("section"); //per sotto dove domande su 10 creo una section
   progress.classList.add("progress"); // con classe
-  progress.textContent = "Domanda " + (currentQuestion + 1) + " / " + quiz.length; // il suo contenuto +1 perchè indice da 0
+  progress.innerHTML = "Domanda " + (currentQuestion + 1) + "<span class = 'barraLunghezza'>  / " + quiz.length + "</span>"; // il suo contenuto +1 perchè indice da 0
   questionContainer.appendChild(progress);
   quizContainer.appendChild(questionContainer);
 
