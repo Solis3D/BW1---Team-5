@@ -69,3 +69,24 @@ const clickOnStar = function () {
 };
 
 clickOnStar();
+
+const form = document.getElementById("feedback-form");
+
+const printThanks = function () {
+  const getDiv = document.querySelector(".thanks");
+
+  if (getDiv.querySelector("h3")) return;
+  const h3 = document.createElement("h3");
+
+  h3.innerText = "Thank you for your feedback!";
+  getDiv.appendChild(h3);
+};
+
+form.addEventListener("submit", function (event) {
+  const input = document.querySelector("input");
+  event.preventDefault();
+  printThanks();
+  const button = document.querySelector("button");
+  button.style.marginTop = "1em";
+  input.value = "";
+});

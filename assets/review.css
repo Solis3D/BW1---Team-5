@@ -27,6 +27,13 @@ a {
   font-size: 32px;
 }
 
+h3 {
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  color: rgba(226, 226, 226, 0.815);
+}
+
 button {
   background-color: #00ffff;
   border: none;
@@ -48,6 +55,7 @@ input {
   font-family: Inter;
   font-size: 28px;
   font-weight: 300;
+  width: 80%;
   border: none;
   border-style: none;
   background-color: transparent;
@@ -119,4 +127,8 @@ input::placeholder {
   margin-block: 0.7em;
   margin-inline: auto;
   width: 95%;
+}
+
+.thanks {
+  margin-top: 1em;
 }
