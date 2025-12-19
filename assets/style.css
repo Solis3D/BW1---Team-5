@@ -53,6 +53,11 @@ h3 {
 }
 
 /* classe per i bottoni per le risposte */
+.question {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
 
 .answersContainer button {
   height: 5rem;
@@ -79,7 +84,8 @@ h3 {
 }
 
 .answersContainer {
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
 /* classi per risposte */
 .answersContainer .selected {
