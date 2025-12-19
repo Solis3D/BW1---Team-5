@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 body {
   background-image: url(./images/bg.jpg);
   background-size: cover;
@@ -55,7 +56,9 @@ h3 {
 
 .answersContainer button {
   height: 5rem;
-  width: 40rem;
+  width: 35%;
+  min-width: 250px;
+  min-height: 74px;
   border-radius: 100px;
   margin: 2rem;
   background-color: transparent;
@@ -66,6 +69,10 @@ h3 {
   -moz-box-shadow: 1px 2px 2px 2px rgba(255, 255, 255, 0.71) inset;
   font-size: large;
   font-weight: 800;
+}
+
+.answersContainer button:hover {
+  background-color: #3a2656;
 }
 
 .answersContainer {
@@ -107,13 +114,22 @@ h3 {
 }
 #quiz .nextContainer .nextButton {
   background-color: transparent;
+  /* border-color: rgba(255, 255, 255, 0.9); */
   color: white;
   height: 70px;
   width: 300px;
   font-size: large;
   font-weight: 800;
   cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.71) inset;
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.71) inset;
+  -moz-box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.71) inset;
 }
+
+#quiz .nextContainer .nextButton:hover {
+  background-color: #3a2656;
+}
+
 /* font al button */
 .nextContainer button {
   font-family: "Inter", sans-serif;

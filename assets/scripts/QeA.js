@@ -93,7 +93,7 @@ function showQuestion() {
   nextButton.classList.add("nextButton"); // classe per bottone avanti
   nextButton.id = "idNextButton";
 
-  nextButton.textContent = "Avanti"; //testo nel bottone
+  nextButton.innerHTML = `PROSSIMA <i class="fas fa-arrow-right"></i>`; //testo nel bottone
   nextContainer.appendChild(nextButton); // inserisco il bottone nel div
 
   // li appendo dopo nel tutto così prima gli do le cose da fare poi li metto
