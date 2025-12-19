@@ -96,6 +96,9 @@ h3 {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
 }
+.barraLunghezza {
+  color: #900080;
+}
 
 /* div che contiene il bottone nel footer  */
 
