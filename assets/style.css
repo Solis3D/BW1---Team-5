@@ -102,12 +102,14 @@ h3 {
 /* classe per la section che conterrà il numero della domanda corrente */
 .progress {
   color: white;
-  text-align: left;
-  font-size: large;
-  margin-right: 77rem;
-  display: inline-block;
+  text-align: center;
+  font-size: 1.3em;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
+  font-weight: bold;
+  display: block;
+  margin-inline: auto;
+  margin-block: 2em 1em;
 }
 .barraLunghezza {
   color: #900080;
@@ -116,8 +118,7 @@ h3 {
 /* div che contiene il bottone nel footer  */
 
 .nextContainer {
-  position: relative;
-  margin-right: 2rem;
+  /* position: relative; */
   /* padding-left: 80rem; */
   /* display: inline-block; */
   text-align: center;
@@ -129,7 +130,7 @@ h3 {
   /* border-color: rgba(255, 255, 255, 0.9); */
   color: white;
   height: 70px;
-  width: 300px;
+  width: 270px;
   font-size: large;
   font-weight: 800;
   cursor: pointer;
@@ -147,6 +148,8 @@ h3 {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   border: solid 1px white;
+  /* bottone tondo */
+  border-radius: 100px;
 }
 
 /* PAGINA RESULTS */

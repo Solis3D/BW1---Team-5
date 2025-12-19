@@ -157,7 +157,7 @@ function showQuizSelection() {
   container.classList.add("question"); // stesso stile delle domande
 
   const title = document.createElement("h3");
-  title.textContent = "Scegli la difficoltà";
+  title.textContent = "Difficulty level";
   container.appendChild(title);
 
   answersContainer = document.createElement("div"); // div contenitore per domande
@@ -214,7 +214,7 @@ function showQuestion() {
   nextButton.classList.add("nextButton"); // classe per bottone avanti
   nextButton.id = "idNextButton";
 
-  nextButton.innerHTML = `PROSSIMA <i class="fas fa-arrow-right"></i>`; //testo nel bottone
+  nextButton.innerHTML = `NEXT <i class="fas fa-arrow-right"></i>`; //testo nel bottone
   nextContainer.appendChild(nextButton); // inserisco il bottone nel div
 
   // li appendo dopo nel tutto così prima gli do le cose da fare poi li metto
@@ -284,7 +284,7 @@ function showQuestion() {
   questionContainer.appendChild(answersContainer); // le metto effetivamente in html solo una volta avergli detto cosa fare
   const progress = document.createElement("section"); //per sotto dove domande su 10 creo una section
   progress.classList.add("progress"); // con classe
-  progress.innerHTML = "Domanda " + (currentQuestion + 1) + "<span class = 'barraLunghezza'>  / " + activeQuiz.length + "</span>"; // il suo contenuto +1 perchè indice da 0
+  progress.innerHTML = "QUESTION " + (currentQuestion + 1) + "<span class = 'barraLunghezza'>  / " + activeQuiz.length + "</span>"; // il suo contenuto +1 perchè indice da 0
   questionContainer.appendChild(progress);
   quizContainer.appendChild(questionContainer);
 
