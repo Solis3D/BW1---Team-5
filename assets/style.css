@@ -66,6 +66,9 @@ h3 {
   -moz-box-shadow: 1px 2px 2px 2px rgba(255, 255, 255, 0.71) inset;
   font-size: large;
   font-weight: 800;
+  font-weight: bolder;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .answersContainer {
@@ -118,6 +121,7 @@ h3 {
 .nextContainer button {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
+  border: solid 1px white;
 }
 
 /* PAGINA RESULTS */
@@ -132,6 +136,18 @@ h3 {
 .resultsTest p,
 h1 {
   margin: 1rem;
+}
+h1 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+}
+p {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+a button {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
 }
 /* section per il grafico e percentuale */
 #graphSection {
